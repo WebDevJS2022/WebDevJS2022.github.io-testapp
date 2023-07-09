@@ -20,17 +20,16 @@
         </tr>
       </tbody>
     </v-table>
-    <v-pagination
-      v-model="page"
-      :length="pageSize"
-      :total-visible="4"
-    ></v-pagination>
+    <BasePagination :page="page" :count="countUsers" :per-page="usersPerPage" />
   </template>
 
 <script>
-import users from '@/data/users'
+import users from '@/data/users';
+import BasePagination from '@/components/BasePagination.vue'
 
 export default {
+  name: 'AppUsers',
+  components: { BasePagination },
   data () {
     return {
       page: 1,
@@ -42,6 +41,9 @@ export default {
       const offset = (this.page - 1) * this.usersPerPage;
       return users.slice(offset, offset + this.usersPerPage);
     }
+  },
+  countUsers() {
+    return users.length;
   }
 }
 </script>
