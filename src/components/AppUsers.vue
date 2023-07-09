@@ -34,10 +34,15 @@ export default {
   data () {
     return {
       page: 1,
-      pageSize: 3,
-      users,
+      usersPerPage: 3,
     };
   },
+  computed: {
+    users(){
+      const offset = (this.page - 1) * this.usersPerPage;
+      return users.slice(offset, offset + this.usersPerPage);
+    }
+  }
 }
 </script>
 
@@ -45,5 +50,7 @@ export default {
 .users {
  margin-top: 100px;
  margin-left: 50px;
+ margin-right: 50px;
+ border: solid 2px blue;
 }
 </style>
