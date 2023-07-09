@@ -20,7 +20,7 @@
         </tr>
       </tbody>
     </v-table>
-    <BasePagination :page="page" :count="countUsers" :per-page="usersPerPage" />
+    <BasePagination v-model="page"/>
   </template>
 
 <script>
@@ -42,9 +42,6 @@ export default {
       return users.slice(offset, offset + this.usersPerPage);
     }
   },
-  countUsers() {
-    return users.length;
-  }
 }
 </script>
 
