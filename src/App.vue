@@ -1,14 +1,12 @@
 <template>
-  <v-app>
-    <v-main>
-      <h1>Hello World</h1>
-    </v-main>
-  </v-app>
+  <AppHeader />
 </template>
 
 <script>
+import AppHeader from './components/AppHeader.vue';
 
 export default {
   name: 'App',
+  components: { AppHeader }
 };
 </script>

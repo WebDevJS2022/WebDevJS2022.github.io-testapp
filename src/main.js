@@ -2,10 +2,10 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import store from './store';
 import vuetify from './plugins/vuetify';
-// import { loadFonts } from './plugins/webfontloader';
+import { loadFonts } from './plugins/webfontloader';
 import 'vuetify/dist/vuetify.min.css';
 
-// loadFonts();
+loadFonts();
 
 createApp(App)
   .use(store)
