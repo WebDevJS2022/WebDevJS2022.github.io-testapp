@@ -1,14 +1,12 @@
 <template>
-  <AppHeader />
-  <AppUsers />
+  <HomePage />
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue';
-import AppUsers from './components/AppUsers.vue';
+import HomePage from '@/pages/HomePage.vue';
 
 export default {
   name: 'App',
-  components: { AppHeader, AppUsers }
+  components: { HomePage }
 };
 </script>
