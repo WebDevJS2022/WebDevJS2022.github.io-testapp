@@ -25,7 +25,7 @@
         />
       </tbody>
     </v-table>
-    <!-- <BasePagination v-model="page"/> -->
+    <BasePagination v-model="page" :per-page="usersPerPage" :count="countUsers"/>
   
 </template>
 
@@ -34,14 +34,15 @@ import users from '@/data/users.js'
 import AppHeader from '@/components/AppHeader.vue';
 import AppUsers from '@/components/AppUsers.vue';
 import UserPage from '@/pages/UserPage.vue';
-// import BasePagination from '@/components/BasePagination.vue'
+import BasePagination from '@/components/BasePagination.vue'
 
 export default {
   name: 'HomePage',
-  components: { AppHeader, AppUsers, UserPage },
+  components: { AppHeader, AppUsers, UserPage, BasePagination },
   data() {
     return {
-        users: users,
+        page: 1,
+        usersPerPage: 3,
         user: null,
         active: {
             user_drawer: false
@@ -56,6 +57,15 @@ export default {
     },
     closeUserDrawer() {
         this.active.user_drawer = false
+    }
+  },
+  computed: {
+    users(){
+      const offset = (this.page - 1) * this.usersPerPage;
+      return users.slice(offset, offset + this.usersPerPage);
+    },
+    countUsers(){
+        return users.length;
     }
   }
 };

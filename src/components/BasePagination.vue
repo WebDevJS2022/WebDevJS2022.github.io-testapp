@@ -8,6 +8,11 @@
 <script>
 export default {
     name: 'BasePagination',
-    props: ['page'],
+    props: ['page', 'perPage', 'count'],
+    computed: {
+      pages() {
+        return Math.ceil(this.count / this.perPage);
+      }
+    }
 }
 </script>
