@@ -1,7 +1,7 @@
 {
     "users": [{
         "id": 1,
-        "surname": "Иванов",
+        "surname": "ИВАНОВ",
         "name": "Иван",
         "position": "Генеральный директор",
         "data": "09.03.1987",
@@ -9,8 +9,8 @@
         "sex": "мужской"
       },  {
         "id": 2,
-        "surname": "Петров",
-        "name": "Петр",
+        "surname": "ПЕТРОВ",
+        "name": "Пётр",
         "position": "Финансовый директор",
         "data": "22.07.1987",
         "passport": "RA198817",
@@ -18,7 +18,7 @@
       },
       {
         "id": 3,
-        "surname": "Каримов",
+        "surname": "КАРИМОВ",
         "name": "Карим",
         "position": "Главный бухгалтер",
         "data": "22.03.1971",
@@ -27,7 +27,7 @@
       },
       {
         "id": 4,
-        "surname": "Ахмедова",
+        "surname": "АХМЕДОВА",
         "name": "Лола",
         "position": "Аналитик",
         "data": "10.03.1987",
@@ -36,7 +36,7 @@
       },
       {
         "id": 5,
-        "surname": "Голосова",
+        "surname": "ГОЛОСОВА",
         "name": "Ирина",
         "position": "Менеджер по проекту",
         "data": "22.12.1987",
@@ -45,7 +45,7 @@
       },
       {
         "id": 6,
-        "surname": "Абрамян",
+        "surname": "АБРАМЯН",
         "name": "Михаил",
         "position": "Фронтэнд разработчик",
         "data": "22.03.1960",
@@ -54,7 +54,7 @@
       },
       {
         "id": 7,
-        "surname": "Нарзиев",
+        "surname": "НАРЗИЕВ",
         "name": "Тимур",
         "position": "Бекэнд разработчик",
         "data": "01.03.1987",
@@ -63,7 +63,7 @@
       },
       {
         "id": 8,
-        "surname": "Закиров",
+        "surname": "ЗАКИРОВ",
         "name": "Закир",
         "position": "Тестировщик",
         "data": "22.08.1987",
@@ -72,7 +72,7 @@
       },
       {
         "id": 9,
-        "surname": "Бурнашев",
+        "surname": "БУРНАШЕВ",
         "name": "Борис",
         "position": "Дизайнер",
         "data": "22.03.2000",
@@ -81,7 +81,7 @@
       },
       {
         "id": 10,
-        "surname": "Малацион",
+        "surname": "МАЛАЦИОН",
         "name": "Малика",
         "position": "HR-менеджер",
         "data": "03.03.1987",
@@ -90,7 +90,7 @@
       },
       {
         "id": 11,
-        "surname": "Хирувимов",
+        "surname": "ХИРУВИМОВ",
         "name": "Олег",
         "position": "Фулстек разработчик",
         "data": "22.11.1987",
@@ -99,7 +99,7 @@
       },
       {
         "id": 12,
-        "surname": "Юсупова",
+        "surname": "ЮСУПОВА",
         "name": "Гульмира",
         "position": "Офис менеджер",
         "data": "22.03.1990",
@@ -108,7 +108,7 @@
       }],
     "documents": [{
         "id": 1,
-        "type": "Доверенность",
+        "type": "ДОВЕРЕННОСТЬ",
         "number": 123,
         "data": "13-03-2010",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -117,7 +117,7 @@
     },
     {
         "id": 2,
-        "type": "Счет-фактура",
+        "type": "СЧЕТ-ФАКТУРА",
         "number": 567,
         "data": "14-04-2014",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -126,7 +126,7 @@
     },
     {
         "id": 3,
-        "type": "Доверенность",
+        "type": "ДОВЕРЕННОСТЬ",
         "number": 890,
         "data": "15-05-2015",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -135,7 +135,7 @@
     },
     {
         "id": 4,
-        "type": "Счет-фактура",
+        "type": "СЧЕТ-ФАКТУРА",
         "number": 475,
         "data": "16-06-2016",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -144,7 +144,7 @@
     },
     {
         "id": 5,
-        "type": "Доверенность",
+        "type": "ДОВЕРЕННОСТЬ",
         "number": 932,
         "data": "17-07-2017",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -153,7 +153,7 @@
     },
     {
         "id": 6,
-        "type": "Счет-фактура",
+        "type": "СЧЕТ-ФАКТУРА",
         "number": 821,
         "data": "18-08-2018",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -162,7 +162,7 @@
     },
     {
         "id": 7,
-        "type": "Доверенность",
+        "type": "ДОВЕРЕННОСТЬ",
         "number": 837,
         "data": "03-09-2019",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -171,7 +171,7 @@
     },
     {
         "id": 8,
-        "type": "Счет-фактура",
+        "type": "СЧЕТ-ФАКТУРА",
         "number": 928,
         "data": "13-01-2011",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -180,7 +180,7 @@
     },
     {
         "id": 9,
-        "type": "Доверенность",
+        "type": "ДОВЕРЕННОСТЬ",
         "number": 811,
         "data": "12-03-2012",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -189,7 +189,7 @@
     },
     {
         "id": 10,
-        "type": "Счет-фактура",
+        "type": "СЧЕТ-ФАКТУРА",
         "number": 783,
         "data": "13-03-2020",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -198,7 +198,7 @@
     },
     {
         "id": 11,
-        "type": "Доверенность",
+        "type": "ДОВЕРЕННОСТЬ",
         "number": 922,
         "data": "13-11-2010",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -207,7 +207,7 @@
     },
     {
         "id": 12,
-        "type": "Счет-фактура",
+        "type": "СЧЕТ-ФАКТУРА",
         "number": 140,
         "data": "10-03-2000",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
