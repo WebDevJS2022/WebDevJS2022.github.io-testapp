@@ -21,6 +21,7 @@
     
 
 
+    <DocumentPage :document="document" :active2="active2.document_drawer" v-on:close-document-drawer="closeDocumentDrawer()" />
     <h1 class="users-title">СПИСОК ДОКУМЕНТОВ</h1>
     <v-table class="users">
         <thead>
@@ -51,12 +52,13 @@ import documents from '@/data/documents.js';
 import AppHeader from '@/components/AppHeader.vue';
 import AppUsers from '@/components/AppUsers.vue';
 import UserPage from '@/pages/UserPage.vue';
+import DocumentPage from '@/pages/DocumentPage.vue';
 import BasePagination from '@/components/BasePagination.vue';
 import AppDocuments from '@/components/AppDocuments.vue';
 
 export default {
   name: 'HomePage',
-  components: { AppHeader, AppUsers, UserPage, BasePagination, AppDocuments },
+  components: { AppHeader, AppUsers, UserPage, BasePagination, AppDocuments, DocumentPage },
   data() {
     return {
         page: 1,
