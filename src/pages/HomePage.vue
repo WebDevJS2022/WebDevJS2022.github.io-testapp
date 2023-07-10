@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <AppUsers v-for="user in users" :key="user.id" :user="user" v-on:view-user="viewUser($event)" />
+            <AppUsers v-for="user in this.$store.state.users" :key="user.id" :user="user" v-on:view-user="viewUser($event)" />
         </tbody>
     </v-table>
     <v-pagination
@@ -59,6 +59,7 @@ import AppUsers from '@/components/AppUsers.vue';
 import UserPage from '@/pages/UserPage.vue';
 import DocumentPage from '@/pages/DocumentPage.vue';
 import AppDocuments from '@/components/AppDocuments.vue';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'HomePage',
@@ -81,6 +82,10 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+        'GET_USERS_FROM_API'
+    ]),
+
     viewUser(user) {
         this.user = user
         this.active.user_drawer = true
@@ -95,6 +100,9 @@ export default {
     closeDocumentDrawer() {
         this.active2.document_drawer = false
     }
+  },
+  mounted() {
+    this.GET_USERS_FROM_API()
   },
   computed: {
     users(){
