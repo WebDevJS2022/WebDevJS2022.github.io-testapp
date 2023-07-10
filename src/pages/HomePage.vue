@@ -26,6 +26,8 @@
 
     <DocumentPage :document="document" :active2="active2.document_drawer" v-on:close-document-drawer="closeDocumentDrawer()" />
     <h1 class="users-title">СПИСОК ДОКУМЕНТОВ</h1>
+    <p class="search">Найти документ по сотруднику</p>
+    <input v-model="searchUser" type="text" placeholder="Фильтр по сотруднику" class="search">
     <v-table class="users">
         <thead>
             <tr>
@@ -38,7 +40,7 @@
             </tr>
         </thead>
         <tbody>
-            <AppDocuments v-for="document in documents" :key="document.id" :document="document" v-on:view-document="viewDocument($event)" />
+            <AppDocuments v-for="document in filteredUsers" :key="document.id" :document="document" v-on:view-document="viewDocument($event)" />
         </tbody>
     </v-table>
     <div class="text-xs-center">
@@ -63,6 +65,7 @@ export default {
   components: { AppHeader, AppUsers, UserPage, AppDocuments, DocumentPage },
   data() {
     return {
+        searchUser: '',
         page: 1,
         pageDocuments: 1,
         usersPerPage: 3,
@@ -102,6 +105,14 @@ export default {
       const offset = (this.pageDocuments - 1) * this.documentsPerPage;
       return documents.slice(offset, offset + this.documentsPerPage);
     },
+    filteredUsers() {
+        var self = this
+        const filtered = this.documents.filter(function(document) {
+            return document.name.indexOf(self.searchUser) > -1
+        })
+
+        return filtered
+    }
   }
 };
 </script>
@@ -116,5 +127,9 @@ export default {
 .users-title {
     margin-top: 100px;
     text-align: center;
+}
+.search {
+    display: inline-block;
+    margin-left: 130px;
 }
 </style>
