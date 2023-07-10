@@ -17,8 +17,12 @@
                 <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
                     <v-list>Главная</v-list>
                 </router-link>
-                <v-list>Сотрудники</v-list>
-                <v-list>Документы</v-list>
+                <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
+                    <v-list>Сотрудники</v-list>
+                </router-link>
+                <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
+                    <v-list>Документы</v-list>
+                </router-link>
             </v-navigation-drawer>
         </v-layout>
     </v-card>

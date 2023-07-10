@@ -17,7 +17,10 @@
             <AppUsers v-for="user in users" :key="user.id" :user="user" v-on:view-user="viewUser($event)" />
         </tbody>
     </v-table>
-    <BasePagination v-model="page" :per-page="usersPerPage" :count="countUsers" />
+    <v-pagination
+      v-model="page"
+      :length="4"
+    ></v-pagination>
     
 
 
@@ -40,7 +43,7 @@
     </v-table>
     <div class="text-xs-center">
     <v-pagination
-      v-model="pageDocument"
+      v-model="pageDocuments"
       :length="4"
     ></v-pagination>
   </div>
@@ -53,16 +56,15 @@ import AppHeader from '@/components/AppHeader.vue';
 import AppUsers from '@/components/AppUsers.vue';
 import UserPage from '@/pages/UserPage.vue';
 import DocumentPage from '@/pages/DocumentPage.vue';
-import BasePagination from '@/components/BasePagination.vue';
 import AppDocuments from '@/components/AppDocuments.vue';
 
 export default {
   name: 'HomePage',
-  components: { AppHeader, AppUsers, UserPage, BasePagination, AppDocuments, DocumentPage },
+  components: { AppHeader, AppUsers, UserPage, AppDocuments, DocumentPage },
   data() {
     return {
         page: 1,
-        pageDocument: 1,
+        pageDocuments: 1,
         usersPerPage: 3,
         documentsPerPage: 3,
         user: null,
@@ -79,7 +81,6 @@ export default {
     viewUser(user) {
         this.user = user
         this.active.user_drawer = true
-        console.log(this.user)
     },
     closeUserDrawer() {
         this.active.user_drawer = false
@@ -87,7 +88,6 @@ export default {
     viewDocument(document) {
         this.document = document
         this.active2.document_drawer = true
-        console.log(this.document)
     },
     closeDocumentDrawer() {
         this.active2.document_drawer = false
@@ -98,16 +98,10 @@ export default {
       const offset = (this.page - 1) * this.usersPerPage;
       return users.slice(offset, offset + this.usersPerPage);
     },
-    countUsers(){
-        return users.length;
-    },
     documents(){
-      const offset = (this.page - 1) * this.documentsPerPage;
+      const offset = (this.pageDocuments - 1) * this.documentsPerPage;
       return documents.slice(offset, offset + this.documentsPerPage);
     },
-    countDocuments(){
-        return documents.length;
-    }
   }
 };
 </script>
