@@ -40,7 +40,7 @@
             </tr>
         </thead>
         <tbody>
-            <AppDocuments v-for="document in documentsData" :key="document.id" :document="document" v-on:view-document="viewDocument($event)" />
+            <AppDocuments v-for="document in filteredUsers" :key="document.id" :document="document" v-on:view-document="viewDocument($event)" />
         </tbody>
     </v-table>
     <div class="text-xs-center">
@@ -79,8 +79,59 @@ export default {
         active2: {
             document_drawer: false
         },
-        usersData: null, // Вывод списка юзеров из API
-        documentsData: null, // Вывод списка документов из API
+        usersData: [{
+        "id": 1,
+        "surname": "ИВАНОВ",
+        "name": "Иван",
+        "position": "Генеральный директор",
+        "data": "09.03.1987",
+        "passport": "SA198467",
+        "sex": "мужской"
+      },  {
+        "id": 2,
+        "surname": "ПЕТРОВ",
+        "name": "Пётр",
+        "position": "Финансовый директор",
+        "data": "22.07.1987",
+        "passport": "RA198817",
+        "sex": "мужской"
+      },
+      {
+        "id": 3,
+        "surname": "КАРИМОВ",
+        "name": "Карим",
+        "position": "Главный бухгалтер",
+        "data": "22.03.1971",
+        "passport": "OS628467",
+        "sex": "мужской"
+      }], // Вывод списка юзеров из API
+        documentsData: [{
+        "id": 1,
+        "type": "ДОВЕРЕННОСТЬ",
+        "number": 123,
+        "data": "13-03-2010",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "type2": "-",
+        "name": "Иванов Иван"
+    },
+    {
+        "id": 2,
+        "type": "СЧЕТ-ФАКТУРА",
+        "number": 567,
+        "data": "14-04-2014",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "type2": "стандартная",
+        "name": "-"
+    },
+    {
+        "id": 3,
+        "type": "ДОВЕРЕННОСТЬ",
+        "number": 890,
+        "data": "15-05-2015",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "type2": "-",
+        "name": "Петров Петр"
+    }], // Вывод списка документов из API
     }
   },
   methods: {
@@ -164,7 +215,7 @@ export default {
     },
     filteredUsers() {
         var self = this
-        const filtered = this.documents.filter(function(document) {
+        const filtered = this.documentsData.filter(function(document) {
             return document.name.indexOf(self.searchUser) > -1
         })
 

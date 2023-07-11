@@ -1,6 +1,5 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
-import documents from '@/data/documents';
 
 export default createStore({
   state: {
