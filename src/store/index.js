@@ -1,18 +1,26 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
+import documents from '@/data/documents';
 
 export default createStore({
   state: {
-    users: []
+    users: [],
+    documents: []
   },
   getters: {
     USERS(state) {
       return state.users;
     },
+    DOCUMENTS(state) {
+      return state.documents;
+    },
   },
   mutations: {
     SET_USERS_TO_STATE: (state, users) => {
       state.users = users;
+    },
+    SET_DOCUMENTS_TO_STATE: (state, documents) => {
+      state.documents = documents;
     }
   },
   actions: {
@@ -28,6 +36,21 @@ export default createStore({
           console.log(error)
           return error;
         })
+    },
+
+    GET_DOCUMENTS_FROM_API({commit}) {
+      return axios('http://localhost:3000/documents', {
+        method: "GET"
+      })
+        .then((documents) => {
+          commit('SET_DOCUMENTS_TO_STATE', documents.data);
+          return documents;
+        })
+        .catch((error) => {
+          console.log(error)
+          return error;
+        })
     }
+
   },
 });

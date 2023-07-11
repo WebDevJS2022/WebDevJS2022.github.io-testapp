@@ -40,7 +40,7 @@
             </tr>
         </thead>
         <tbody>
-            <AppDocuments v-for="document in filteredUsers" :key="document.id" :document="document" v-on:view-document="viewDocument($event)" />
+            <AppDocuments v-for="document in this.$store.state.documents" :key="document.id" :document="document" v-on:view-document="viewDocument($event)" />
         </tbody>
     </v-table>
     <div class="text-xs-center">
@@ -87,6 +87,9 @@ export default {
     ...mapActions([
         'GET_USERS_FROM_API'
     ]),
+    ...mapActions([
+        'GET_DOCUMENTS_FROM_API'
+    ]),
     loadUsers(){
         axios.get(`http://localhost:3000/users?_page=${this.page}&_limit=${this.usersPerPage}`)
           .then(response => this.usersData = response.data)
@@ -118,6 +121,9 @@ export default {
   },
   mounted() {
     this.GET_USERS_FROM_API()
+  },
+  mounted() {
+    this.GET_DOCUMENTS_FROM_API()
   },
   computed: {
     ...mapGetters([
