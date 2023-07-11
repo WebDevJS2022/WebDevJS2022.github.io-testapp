@@ -104,7 +104,7 @@ export default {
         "data": "22.03.1971",
         "passport": "OS628467",
         "sex": "мужской"
-      }], // Вывод списка юзеров из API
+        }], // Вывод списка юзеров из API
         documentsData: [{
         "id": 1,
         "type": "ДОВЕРЕННОСТЬ",
@@ -131,7 +131,7 @@ export default {
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "type2": "-",
         "name": "Петров Петр"
-    }], // Вывод списка документов из API
+        }], // Вывод списка документов из API
     }
   },
   methods: {
@@ -150,7 +150,7 @@ export default {
         })
     },
     loadDocuments(){
-        axios.get(`http://localhost:3000/documents?_page=${this.page}&_limit=${this.documentsPerPage}`)
+        axios.get(`http://localhost:3000/documents?_page=${this.pageDocuments}&_limit=${this.documentsPerPage}`)
           .then(response => this.documentsData = response.data)
           .catch((error) => {
           console.log(error)
@@ -194,25 +194,6 @@ export default {
     ...mapGetters([
         'DOCUMENTS'
     ]),
-
-    users(){
-      return this.usersData
-        ? this.usersData.users.map(user => {
-            return {
-                ...user,
-            }
-        })
-        : [];
-    },
-    documents(){
-        return this.documentsData
-        ? this.documentsData.documents.map(document => {
-            return {
-                ...document,
-            }
-        })
-        : [];
-    },
     filteredUsers() {
         var self = this
         const filtered = this.documentsData.filter(function(document) {
