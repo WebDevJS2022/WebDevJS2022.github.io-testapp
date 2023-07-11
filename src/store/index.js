@@ -8,7 +8,7 @@ export default createStore({
   getters: {
     USERS(state) {
       return state.users;
-    }
+    },
   },
   mutations: {
     SET_USERS_TO_STATE: (state, users) => {

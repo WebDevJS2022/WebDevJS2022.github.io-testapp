@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <AppUsers v-for="user in this.$store.state.users" :key="user.id" :user="user" v-on:view-user="viewUser($event)" />
+            <AppUsers v-for="user in usersData" :key="user.id" :user="user" v-on:view-user="viewUser($event)" />
         </tbody>
     </v-table>
     <v-pagination
@@ -52,7 +52,6 @@
 </template>
 
 <script>
-import users from '@/data/users.js';
 import documents from '@/data/documents.js';
 import AppHeader from '@/components/AppHeader.vue';
 import AppUsers from '@/components/AppUsers.vue';
@@ -60,6 +59,8 @@ import UserPage from '@/pages/UserPage.vue';
 import DocumentPage from '@/pages/DocumentPage.vue';
 import AppDocuments from '@/components/AppDocuments.vue';
 import { mapActions } from 'vuex';
+import axios from 'axios';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'HomePage',
@@ -79,12 +80,21 @@ export default {
         active2: {
             document_drawer: false
         },
+        usersData: null, // Вывод списка юзеров из API
     }
   },
   methods: {
     ...mapActions([
         'GET_USERS_FROM_API'
     ]),
+    loadUsers(){
+        axios.get(`http://localhost:3000/users?_page=${this.page}&_limit=${this.usersPerPage}`)
+          .then(response => this.usersData = response.data)
+          .catch((error) => {
+          console.log(error)
+          return error;
+        })
+    },
 
     viewUser(user) {
         this.user = user
@@ -101,13 +111,27 @@ export default {
         this.active2.document_drawer = false
     }
   },
+  watch: {
+    page() {
+        this.loadUsers();
+    }
+  },
   mounted() {
     this.GET_USERS_FROM_API()
   },
   computed: {
+    ...mapGetters([
+        'USERS'
+    ]),
+
     users(){
-      const offset = (this.page - 1) * this.usersPerPage;
-      return users.slice(offset, offset + this.usersPerPage);
+      return this.usersData
+        ? this.usersData.users.map(user => {
+            return {
+                ...user,
+            }
+        })
+        : [];
     },
     documents(){
       const offset = (this.pageDocuments - 1) * this.documentsPerPage;
