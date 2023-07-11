@@ -40,7 +40,7 @@
             </tr>
         </thead>
         <tbody>
-            <AppDocuments v-for="document in this.$store.state.documents" :key="document.id" :document="document" v-on:view-document="viewDocument($event)" />
+            <AppDocuments v-for="document in documentsData" :key="document.id" :document="document" v-on:view-document="viewDocument($event)" />
         </tbody>
     </v-table>
     <div class="text-xs-center">
@@ -52,7 +52,6 @@
 </template>
 
 <script>
-import documents from '@/data/documents.js';
 import AppHeader from '@/components/AppHeader.vue';
 import AppUsers from '@/components/AppUsers.vue';
 import UserPage from '@/pages/UserPage.vue';
@@ -81,6 +80,7 @@ export default {
             document_drawer: false
         },
         usersData: null, // Вывод списка юзеров из API
+        documentsData: null, // Вывод списка документов из API
     }
   },
   methods: {
@@ -93,6 +93,14 @@ export default {
     loadUsers(){
         axios.get(`http://localhost:3000/users?_page=${this.page}&_limit=${this.usersPerPage}`)
           .then(response => this.usersData = response.data)
+          .catch((error) => {
+          console.log(error)
+          return error;
+        })
+    },
+    loadDocuments(){
+        axios.get(`http://localhost:3000/documents?_page=${this.page}&_limit=${this.documentsPerPage}`)
+          .then(response => this.documentsData = response.data)
           .catch((error) => {
           console.log(error)
           return error;
@@ -117,6 +125,9 @@ export default {
   watch: {
     page() {
         this.loadUsers();
+    },
+    pageDocuments() {
+        this.loadDocuments();
     }
   },
   mounted() {
@@ -129,6 +140,9 @@ export default {
     ...mapGetters([
         'USERS'
     ]),
+    ...mapGetters([
+        'DOCUMENTS'
+    ]),
 
     users(){
       return this.usersData
@@ -140,8 +154,13 @@ export default {
         : [];
     },
     documents(){
-      const offset = (this.pageDocuments - 1) * this.documentsPerPage;
-      return documents.slice(offset, offset + this.documentsPerPage);
+        return this.documentsData
+        ? this.documentsData.documents.map(document => {
+            return {
+                ...document,
+            }
+        })
+        : [];
     },
     filteredUsers() {
         var self = this
