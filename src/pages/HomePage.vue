@@ -26,8 +26,7 @@
 
     <DocumentPage :document="document" :active2="active2.document_drawer" v-on:close-document-drawer="closeDocumentDrawer()" />
     <h1 class="users-title">СПИСОК ДОКУМЕНТОВ</h1>
-    <p class="search">Найти документ по сотруднику</p>
-    <input v-model="searchUser" type="text" placeholder="Фильтр по сотруднику" class="search">
+    <v-text-field v-model="searchUser" type="text" placeholder="Введите фамилию" label="Фильтр по сотруднику" class="filter"></v-text-field>
     <v-table class="users">
         <thead>
             <tr>
@@ -217,8 +216,11 @@ export default {
     margin-top: 100px;
     text-align: center;
 }
-.search {
-    display: inline-block;
-    margin-left: 130px;
+.filter {
+    width: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 }
 </style>
