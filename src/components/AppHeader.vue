@@ -7,23 +7,38 @@
                 <v-toolbar-title>TEST APP</v-toolbar-title>
 
                 <v-spacer></v-spacer>
-
-                <v-btn variant="text" icon="mdi-magnify"></v-btn>
-                <v-btn variant="text" icon="mdi-filter"></v-btn>
-                <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
             </v-app-bar>
 
-            <v-navigation-drawer v-model="drawer" location="left" temporary>
-                <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
-                    <v-list>Главная</v-list>
-                </router-link>
-                <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
-                    <v-list>Сотрудники</v-list>
-                </router-link>
-                <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
-                    <v-list>Документы</v-list>
-                </router-link>
+
+
+
+            <!-- <router-link :class="{active: $forceUpdate.name ==='home'}" to="/"></router-link> -->
+
+
+            <v-navigation-drawer v-model="drawer" location="left" temporary class="blue lighten-3">
+                <v-list class="header">
+                    <v-list-tile>
+                        <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
+                            <v-btn variant="text" icon="mdi-home"></v-btn>
+                        </router-link>
+                        <v-list-tile-title>Главная</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
+                            <v-btn variant="text" icon="mdi-account-box"></v-btn>
+                        </router-link>
+                        <v-list-tile-title>Сотрудники</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
+                            <v-btn variant="text" icon="mdi-folder"></v-btn>
+                        </router-link>
+                        <v-list-tile-title>Документы</v-list-tile-title>
+                    </v-list-tile>
+                </v-list>
             </v-navigation-drawer>
+
+
         </v-layout>
     </v-card>
 </template>
@@ -37,6 +52,7 @@ export default {
         drawer: false,
         group: null,
         items: [],
+        right: null
     }),
 
     watch: {
@@ -46,3 +62,11 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.header {
+    display: flex;
+    flex-direction: column;
+   
+}
+</style>
