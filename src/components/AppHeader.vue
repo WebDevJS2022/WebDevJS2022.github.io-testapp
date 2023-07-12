@@ -17,24 +17,24 @@
 
             <v-navigation-drawer v-model="drawer" location="left" temporary class="blue lighten-3">
                 <v-list class="header">
-                    <v-list-tile>
-                        <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
+                    <div>
+                        <router-link :class="{active: $forceUpdate.name ==='home'}" to="/" class="header-link">
                             <v-btn variant="text" icon="mdi-home"></v-btn>
+                            <h4 class="header-link-title">Главная</h4>
                         </router-link>
-                        <v-list-tile-title>Главная</v-list-tile-title>
-                    </v-list-tile>
-                    <v-list-tile>
-                        <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
+                    </div>
+                    <div>
+                        <router-link :class="{active: $forceUpdate.name ==='home'}" to="/" class="header-link">
                             <v-btn variant="text" icon="mdi-account-box"></v-btn>
+                            <h4 class="header-link-title">Сотрудники</h4>
                         </router-link>
-                        <v-list-tile-title>Сотрудники</v-list-tile-title>
-                    </v-list-tile>
-                    <v-list-tile>
-                        <router-link :class="{active: $forceUpdate.name ==='home'}" to="/">
+                    </div>
+                    <div>
+                        <router-link :class="{active: $forceUpdate.name ==='home'}" to="/" class="header-link">
                             <v-btn variant="text" icon="mdi-folder"></v-btn>
+                            <h4 class="header-link-title">Документы</h4>
                         </router-link>
-                        <v-list-tile-title>Документы</v-list-tile-title>
-                    </v-list-tile>
+                    </div>
                 </v-list>
             </v-navigation-drawer>
 
@@ -67,6 +67,13 @@ export default {
 .header {
     display: flex;
     flex-direction: column;
-   
+}
+.header-link {
+    display: flex;
+    text-decoration: none;
+    color: blue;
+}
+.header-link-title {
+    margin-top: 12px;
 }
 </style>
