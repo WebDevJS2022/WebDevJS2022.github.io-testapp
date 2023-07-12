@@ -111,7 +111,8 @@ export default {
         "data": "13-03-2010",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "type2": "-",
-        "name": "Иванов Иван"
+        "name": "Иванов Иван",
+        "nameDoverennost": "ФИО доверенного"
     },
     {
         "id": 2,
@@ -120,7 +121,8 @@ export default {
         "data": "14-04-2014",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "type2": "стандартная",
-        "name": "-"
+        "name": "-",
+        "nameFactura": "Тип счет-фактуры"
     },
     {
         "id": 3,
@@ -129,7 +131,8 @@ export default {
         "data": "15-05-2015",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "type2": "-",
-        "name": "Петров Петр"
+        "name": "Петров Петр",
+        "nameDoverennost": "ФИО доверенного"
         }], // Вывод списка документов из API
     }
   },

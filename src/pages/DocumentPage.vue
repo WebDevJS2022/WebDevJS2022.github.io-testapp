@@ -27,12 +27,12 @@
                         <td>{{ document.description }}</td>
                     </tr>
                     <tr>
-                        <td class="td">Тип счет-фактуры</td>
-                        <td>{{ document.type2 }}</td>
+                        <td class="td">{{ (document.id === 2) | (document.id === 4) | (document.id === 6) | (document.id === 8) | (document.id === 10) | (document.id === 12) ? (document.nameFactura) : null }}</td>
+                        <td >{{ (document.id === 2) | (document.id === 4) | (document.id === 6) | (document.id === 8) | (document.id === 10) | (document.id === 12) ? (document.type2) : null }}</td>
                     </tr>
                     <tr>
-                        <td class="td">ФИО доверенного</td>
-                        <td>{{ document.name }}</td>
+                        <td class="td">{{ (document.id === 1) | (document.id === 3) | (document.id === 5) | (document.id === 7) | (document.id === 9) | (document.id === 11) ? (document.nameDoverennost) : null }}</td>
+                        <td>{{ (document.id === 1) | (document.id === 3) | (document.id === 5) | (document.id === 7) | (document.id === 9) | (document.id === 11) ? (document.name) : null }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -49,7 +49,6 @@ export default {
 </script>
 
 <style scoped>
-
 .drawer-background {
     width: 100%;
     height: 1000vh;
