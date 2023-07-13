@@ -1,6 +1,6 @@
 <template>
     <AppHeader />
-    <UserPage :user="user" :active="active.user_drawer" v-on:close-user-drawer="closeUserDrawer()" />
+    <UserPage :user="user" :active="active.user_drawer" v-on:close-user-drawer="closeUserDrawer()"/>
     <h1 class="users-title">СПИСОК СОТРУДНИКОВ</h1>
     <v-table class="users">
         <thead>

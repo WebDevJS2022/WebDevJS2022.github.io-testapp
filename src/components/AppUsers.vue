@@ -8,7 +8,7 @@
                 {{ user.surname }} {{ user.name }}
             </a>
         </td>
-        <td>{{ user.position }}</td>
+        <td>{{ user.position }}</td> 
     </tr>
 </template>
 

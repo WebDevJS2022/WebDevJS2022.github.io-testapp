@@ -45,6 +45,7 @@
 export default {
   name: 'DocumentPage',
   props: ['document', 'active2'],
+  emits: ['close-document-drawer']
 };
 </script>
 

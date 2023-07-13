@@ -47,6 +47,7 @@
 export default {
   name: 'UserPage',
   props: ['user', 'active'],
+  emits: ['close-user-drawer']
 };
 </script>
 
